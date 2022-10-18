@@ -1,8 +1,13 @@
 # Assignment: Design Patterns (individual)
 
-## Objectives
+## Instructions
 
-Use design patterns to build the application
+*[Main.java](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/Main.java)* is the entry point for the Product Trading and Bidding System **(PTBS)**.
+
+**Commands:**
+
+- change directory - `cd /path/to/design-patterns`
+- compile and run - `javac Main.java && java Main`
 
 ## Introducing Design Patterns (40)
 
