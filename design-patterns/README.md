@@ -1,6 +1,6 @@
 # Assignment: Design Patterns (individual)
 
-## Instructions
+## How To
 
 *[Main.java](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/Main.java)* is the entry point for the Product Trading and Bidding System **(PTBS)**.
 
