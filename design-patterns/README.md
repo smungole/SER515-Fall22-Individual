@@ -9,6 +9,11 @@
 - change directory - `cd /path/to/design-patterns`
 - compile and run - `javac Main.java && java Main`
 
+**Runtime:**
+
+- JavaSE 11
+- Tested on MacOS
+
 ## Introducing Design Patterns (40)
 
 Following is the implementation of five design patterns into the Product Trading and Bidding System **(PTBS)**. The five design patterns, which are implemented within the PTBS systems, are **Façade, Bridge, Factory Method, Iterator, and Visitor**. In the following sections, a brief description of the patterns and the detailed implementation of the patterns is presented.
