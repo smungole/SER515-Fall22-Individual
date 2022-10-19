@@ -2,7 +2,10 @@
 
 ## How To
 
-*[Main.java](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/Main.java)* is the entry point for the Product Trading and Bidding System **(PTBS)**.
+This is a command-line application for the Product Trading and Bidding System **(PTBS)**.
+*[Main.java](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/Main.java)* is the entry point.
+
+If you wish to use a different database for the system, go to *[design-patterns/data](https://github.com/smungole/SER515-Fall22-Individual/tree/main/design-patterns/data)* directory and update the file contents for *[BuyerInfo.txt](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/data/BuyerInfo.txt)*, *[SellerInfo.txt](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/data/SellerInfo.txt)*, *[ProductInfo.txt](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/data/ProductInfo.txt)*, and *[UserProduct.txt](https://github.com/smungole/SER515-Fall22-Individual/blob/main/design-patterns/data/UserProduct.txt)* as per your requirements.
 
 **Commands:**
 
