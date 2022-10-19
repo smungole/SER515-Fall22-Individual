@@ -1,11 +1,16 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-// DB is a singleton class which performs common file handling operations for the
-// PTBS system.
+/**
+ * DB is a singleton class which performs common file handling operations for
+ * the PTBS system.
+ */
 public class DB {
+    private static final String SEP = File.separator;
     private static DB instance = null;
 
     private DB() {
@@ -19,7 +24,7 @@ public class DB {
     }
 
     public List<String> read(String fileName) throws IOException {
-        Path path = Path.of(String.format("data/%s", fileName));
+        Path path = Path.of(String.format("data%s%s", DB.SEP, fileName));
         return Files.readAllLines(path);
     }
 
@@ -30,7 +35,8 @@ public class DB {
             sb.append('\n');
         }
 
-        Path path = Path.of(String.format("data/%s", fileName));
-        Files.writeString(path, sb.toString().stripTrailing());
+        String content = sb.toString();
+        Path path = Path.of(String.format("data%s%s", DB.SEP, fileName));
+        Files.writeString(path, content, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
     }
 }
