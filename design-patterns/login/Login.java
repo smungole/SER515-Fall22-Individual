@@ -7,6 +7,7 @@ import java.util.Map;
 
 import database.DB;
 import person.*;
+import util.Util;
 
 /**
  * Responsible for logging the user into the application
@@ -52,7 +53,11 @@ public class Login {
             person = verify(name, pass);
 
             if (person != null) {
-                System.out.println(String.format("\tWelcome back, %s!", name));
+                System.out.printf(
+                        "\n\t%s Welcome back, %s %s\n",
+                        Util.dashes(20),
+                        name,
+                        Util.dashes(20));
                 break;
             } else {
                 System.out.println("\tInvalid user name or password.\n\n");
