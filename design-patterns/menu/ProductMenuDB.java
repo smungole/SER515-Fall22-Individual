@@ -38,8 +38,6 @@ public class ProductMenuDB {
                 meatProducts.add(product[1]);
             }
         }
-        System.out.println(produceProducts);
-        System.out.println(meatProducts);
     }
 
 }
