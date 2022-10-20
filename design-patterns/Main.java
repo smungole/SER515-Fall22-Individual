@@ -4,6 +4,8 @@ import login.Login;
 import menu.ProductMenuDB;
 import menu.ProductMenu;
 import person.Person;
+import product.UserProduct;
+import product.UserProductDB;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -17,8 +19,10 @@ public class Main {
         // * 3. Show product type selection menu based on the type of person
         person.showMenu();
 
+        // * 4. Show product options to the user
         ProductMenu menu = person.createProductMenu();
-        menu.showMenu();
+        UserProduct userProduct = new UserProduct(person, menu);
+        userProduct.showMenu();
     }
 
     /**
@@ -30,5 +34,6 @@ public class Main {
         Login.loadBuyers();
         Login.loadSellers();
         ProductMenuDB.loadProducts();
+        UserProductDB.loadUserProducts();
     }
 }
