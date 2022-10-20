@@ -40,8 +40,11 @@ public class Seller extends Person {
     }
 
     @Override
-    public String orderPlacedString() {
-        return String.format("%s placed a sell order for the following products:", name);
+    public String[] placeOrderStrings() {
+        return new String[] { "Select a product you'd like to make an offering for - ",
+                "How much stock do you have? - ",
+                "Enter the offerring price (for each unit) - ",
+                "You placed a sell order for the following product:" };
     }
 
 }

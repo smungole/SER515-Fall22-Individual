@@ -2,7 +2,6 @@ import java.io.IOException;
 
 import login.Login;
 import menu.ProductMenuDB;
-import menu.ProductMenu;
 import person.Person;
 import product.UserProduct;
 import product.UserProductDB;
@@ -22,8 +21,7 @@ public class Main {
             person.showMenu();
 
             // * 4. Show product options to the user
-            ProductMenu menu = person.createProductMenu();
-            UserProduct userProduct = new UserProduct(person, menu);
+            UserProduct userProduct = new UserProduct(person);
             userProduct.showMenu();
 
             showEOL(person.getName().length());

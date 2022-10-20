@@ -1,49 +1,60 @@
 package product;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import menu.ProductMenu;
 import person.Person;
+import util.Util;
 
 public class UserProduct {
     private final Person person;
     private final ProductMenu menu;
 
-    public UserProduct(Person person, ProductMenu menu) {
+    public UserProduct(Person person) {
         this.person = person;
-        this.menu = menu;
+        this.menu = person.createProductMenu();
     }
 
     public void showMenu() throws IOException {
         menu.showMenu();
 
-        System.out.print("\n\tSelect all the products that you're interested in ");
-        System.out.print("(eg. 1 3 4) - ");
-        String selection = System.console().readLine().trim();
-
-        List<Integer> options = new ArrayList<>();
-        for (String s : selection.split(" ")) {
+        boolean repeat = true;
+        while (repeat) {
             try {
-                options.add(Integer.parseInt(s) - 1);
+                String[] placeOrderStrings = person.placeOrderStrings();
+
+                System.out.printf("\t%s", placeOrderStrings[0]);
+                Integer selection = Integer.parseInt(System.console().readLine().trim());
+                String product = menu.valueAt(selection - 1);
+                if (product == null) {
+                    throw new NumberFormatException();
+                }
+
+                System.out.printf("\t%s", placeOrderStrings[1]);
+                Integer quantity = Integer.parseInt(System.console().readLine().trim());
+                System.out.printf("\t%s", placeOrderStrings[2]);
+                Double price = Double.parseDouble(System.console().readLine().trim());
+
+                orderSummary(placeOrderStrings[3], product, quantity, price);
+                repeat = false;
             } catch (NumberFormatException e) {
-                // * do nothing if the selected option is invalid
+                System.out.println("\nInvalid selection, please try again");
             }
         }
+    }
 
-        List<String> selectedProducts = menu.filterProducts(options);
-        if (selectedProducts.isEmpty()) {
-            System.out.println("\n\tYou haven't selected any products.");
-            return;
-        }
+    private void orderSummary(String label, String product, Integer quantity, Double price) throws IOException {
+        System.out.printf(
+                "\n\t%s ORDER SUMMARY %s\n",
+                Util.dashes(10),
+                Util.dashes(10));
 
-        System.out.println(String.format("\n\t%s", person.orderPlacedString()));
-        for (int i = 0; i < selectedProducts.size(); i++) {
-            String line = String.format("\t\t%d. %s", i + 1, selectedProducts.get(i));
-            System.out.println(line);
-            UserProductDB.addProduct(person.getName(), selectedProducts.get(i));
-        }
+        System.out.printf("\t%s\n", label);
+        System.out.printf("\t\t- Name: %s\n", product);
+        System.out.printf("\t\t- Quantity: %d\n", quantity);
+        System.out.printf("\t\t- Price: $%.2f\n", price);
+
+        UserProductDB.addProduct(person.getName(), product);
         UserProductDB.saveUserProducts();
     }
 }

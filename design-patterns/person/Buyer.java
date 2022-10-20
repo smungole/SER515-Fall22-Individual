@@ -40,8 +40,11 @@ public class Buyer extends Person {
     }
 
     @Override
-    public String orderPlacedString() {
-        return String.format("%s placed a buy order for the following products:", name);
+    public String[] placeOrderStrings() {
+        return new String[] { "Select a product you'd like to make a bid - ",
+                "How many products do you want? - ",
+                "Enter the amount you're willing to pay (for each unit) - ",
+                "You placed a buy order for the following product:" };
     }
 
 }
