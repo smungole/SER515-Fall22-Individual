@@ -20,7 +20,7 @@ public class UserProduct {
         menu.showMenu();
 
         System.out.print("\n\tSelect all the products that you're interested in ");
-        System.out.print("\t(eg. 1 3 4) - ");
+        System.out.print("(eg. 1 3 4) - ");
         String selection = System.console().readLine().trim();
 
         List<Integer> options = new ArrayList<>();
@@ -38,7 +38,7 @@ public class UserProduct {
             return;
         }
 
-        System.out.println("\n\tYou selected the following products:");
+        System.out.println(String.format("\n\t%s", person.orderPlacedString()));
         for (int i = 0; i < selectedProducts.size(); i++) {
             String line = String.format("\t\t%d. %s", i + 1, selectedProducts.get(i));
             System.out.println(line);
