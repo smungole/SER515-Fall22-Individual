@@ -13,20 +13,19 @@ public class Login {
     private static Map<String, String> sellers = new HashMap<String, String>();
 
     public static void loadBuyers() throws IOException {
-        DB db = DB.getInstance();
-        List<String> contents = db.read(BUYER_FILE_NAME);
-        for (int i = 0; i < contents.size(); i++) {
-            String[] user = contents.get(i).trim().split(":");
-            buyers.put(user[0], user[1]);
-        }
+        loadUsers(BUYER_FILE_NAME, buyers);
     }
 
     public static void loadSellers() throws IOException {
+        loadUsers(SELLER_FILE_NAME, sellers);
+    }
+
+    private static void loadUsers(String fileName, Map<String, String> store) throws IOException {
         DB db = DB.getInstance();
-        List<String> contents = db.read(SELLER_FILE_NAME);
+        List<String> contents = db.read(fileName);
         for (int i = 0; i < contents.size(); i++) {
             String[] user = contents.get(i).trim().split(":");
-            sellers.put(user[0], user[1]);
+            store.put(user[0], user[1]);
         }
     }
 
