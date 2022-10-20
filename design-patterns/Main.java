@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 import login.Login;
-import menu.ProductDB;
+import menu.ProductMenuDB;
 import menu.ProductMenu;
 import person.Person;
 
@@ -29,6 +29,6 @@ public class Main {
     private static void loadDB() throws IOException {
         Login.loadBuyers();
         Login.loadSellers();
-        ProductDB.loadProducts();
+        ProductMenuDB.loadProducts();
     }
 }

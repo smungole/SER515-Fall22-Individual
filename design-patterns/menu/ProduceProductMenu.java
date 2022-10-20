@@ -7,7 +7,7 @@ public class ProduceProductMenu implements ProductMenu {
     private List<String> products;
 
     public ProduceProductMenu() {
-        this.products = ProductDB.getProduceProducts();
+        this.products = ProductMenuDB.getProduceProducts();
     }
 
     @Override

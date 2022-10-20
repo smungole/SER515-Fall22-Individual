@@ -6,7 +6,7 @@ import java.util.List;
 
 import database.DB;
 
-public class ProductDB {
+public class ProductMenuDB {
     private static final String PRODUCT_FILE_NAME = "ProductInfo.txt";
     private static final String PRODUCE_KEY = "Produce";
     private static final String MEAT_KEY = "Meat";
@@ -23,7 +23,7 @@ public class ProductDB {
         return produceProducts;
     }
 
-    private ProductDB() {
+    private ProductMenuDB() {
     }
 
     public static void loadProducts() throws IOException {
@@ -38,6 +38,8 @@ public class ProductDB {
                 meatProducts.add(product[1]);
             }
         }
+        System.out.println(produceProducts);
+        System.out.println(meatProducts);
     }
 
 }
