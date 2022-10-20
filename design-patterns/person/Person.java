@@ -22,4 +22,6 @@ public abstract class Person {
     public abstract void showMenu();
 
     public abstract ProductMenu createProductMenu();
+
+    public abstract String orderPlacedString();
 }

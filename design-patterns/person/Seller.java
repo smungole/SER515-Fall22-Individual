@@ -39,4 +39,9 @@ public class Seller extends Person {
         return super.getTheProductMenu();
     }
 
+    @Override
+    public String orderPlacedString() {
+        return String.format("%s placed a sell order for the following products:", name);
+    }
+
 }
