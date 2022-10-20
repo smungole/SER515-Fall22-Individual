@@ -3,6 +3,12 @@ package person;
 import menu.ProductMenu;
 
 public abstract class Person {
+    protected String name;
+
+    public String getName() {
+        return name;
+    }
+
     private ProductMenu theProductMenu;
 
     protected ProductMenu getTheProductMenu() {

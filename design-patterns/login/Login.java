@@ -6,9 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import database.DB;
-import person.Buyer;
-import person.Person;
-import person.Seller;
+import person.*;
 
 /**
  * Responsible for logging the user into the application
@@ -78,10 +76,10 @@ public class Login {
 
     private static Person verify(String name, String pass) {
         if (buyers.containsKey(name) && buyers.get(name).equals(pass)) {
-            return new Buyer();
+            return new Buyer(name);
         }
         if (sellers.containsKey(name) && sellers.get(name).equals(pass)) {
-            return new Seller();
+            return new Seller(name);
         }
         return null;
     }

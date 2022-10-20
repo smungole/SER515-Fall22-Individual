@@ -6,6 +6,10 @@ import menu.ProductMenu;
 
 public class Buyer extends Person {
 
+    public Buyer(String name) {
+        this.name = name;
+    }
+
     @Override
     public void showMenu() {
         System.out.println("\n\tWhat type of products are you looking to buy today?");
