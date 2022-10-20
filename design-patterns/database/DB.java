@@ -39,6 +39,6 @@ public class DB {
 
         String content = sb.toString();
         Path path = Path.of(String.format("data%s%s", DB.SEP, fileName));
-        Files.writeString(path, content, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        Files.writeString(path, content);
     }
 }
