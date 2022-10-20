@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import database.DB;
+import person.Buyer;
+import person.Person;
+import person.Seller;
 
 /**
  * Responsible for logging the user into the application
@@ -39,49 +42,47 @@ public class Login {
     /**
      * Verifies if the user exists in the system.
      * 
-     * @param name
-     * @param pass
      * @return
      */
-    public static void login() {
-        // TODO: return logged in user object
-
+    public static Person login() {
         String name = null;
         String pass = null;
-        boolean isLoggedIn = false;
-        while (!isLoggedIn) {
+        Person person = null;
+        while (person == null) {
             name = Login.askUserName();
             pass = Login.askPassword();
-            isLoggedIn = verify(name, pass);
+            person = verify(name, pass);
 
-            if (isLoggedIn) {
-                System.out.println(String.format("Welcome back, %s!", name));
+            if (person != null) {
+                System.out.println(String.format("     Welcome back, %s!", name));
                 break;
             } else {
-                System.out.println("Invalid user name or password.\n");
+                System.out.println("     Invalid user name or password.\n");
             }
         }
+
+        return person;
     }
 
     private static String askUserName() {
-        System.out.print("What is thy name? - ");
+        System.out.print("\n     What is thy name? - ");
         String user = System.console().readLine();
         return user.trim();
     }
 
     private static String askPassword() {
-        System.out.print("Your super-secret password? - ");
+        System.out.print("     Your super-secret password? - ");
         char[] pass = System.console().readPassword();
         return new String(pass).trim();
     }
 
-    private static boolean verify(String name, String pass) {
+    private static Person verify(String name, String pass) {
         if (buyers.containsKey(name) && buyers.get(name).equals(pass)) {
-            return true;
+            return new Buyer();
         }
         if (sellers.containsKey(name) && sellers.get(name).equals(pass)) {
-            return true;
+            return new Seller();
         }
-        return false;
+        return null;
     }
 }
