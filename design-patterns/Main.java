@@ -11,6 +11,7 @@ public class Main {
         loadDB();
 
         // * 2. Add Login functionality
+        System.out.println();
         Person person = Login.login();
 
         // * 3. Show product type selection menu based on the type of person

@@ -54,10 +54,10 @@ public class Login {
             person = verify(name, pass);
 
             if (person != null) {
-                System.out.println(String.format("     Welcome back, %s!", name));
+                System.out.println(String.format("\tWelcome back, %s!", name));
                 break;
             } else {
-                System.out.println("     Invalid user name or password.\n");
+                System.out.println("\tInvalid user name or password.\n\n");
             }
         }
 
@@ -65,13 +65,13 @@ public class Login {
     }
 
     private static String askUserName() {
-        System.out.print("\n     What is thy name? - ");
+        System.out.print("\tWhat is thy name? - ");
         String user = System.console().readLine();
         return user.trim();
     }
 
     private static String askPassword() {
-        System.out.print("     Your super-secret password? - ");
+        System.out.print("\tYour super-secret password? - ");
         char[] pass = System.console().readPassword();
         return new String(pass).trim();
     }

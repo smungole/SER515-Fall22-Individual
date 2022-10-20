@@ -12,11 +12,11 @@ public class ProduceProductMenu implements ProductMenu {
 
     @Override
     public void showMenu() {
-        System.out.println("\n     ---------- PRODUCE PRODUCTS ----------");
+        System.out.println("\n\t---------- PRODUCE PRODUCTS ----------");
         for (int i = 0; i < products.size(); i++) {
-            System.out.println(String.format("          %d. %s", i + 1, products.get(i)));
+            System.out.println(String.format("\t\t%d. %s", i + 1, products.get(i)));
         }
-        System.out.println("     ---------- x ------------ x ----------");
+        System.out.println("\t---------- x ------------ x ----------");
     }
 
 }

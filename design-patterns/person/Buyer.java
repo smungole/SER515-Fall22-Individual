@@ -8,10 +8,10 @@ public class Buyer extends Person {
 
     @Override
     public void showMenu() {
-        System.out.println("\n     What type of products are you looking to buy today?");
-        System.out.println("          1. Produce Products");
-        System.out.println("          2. Meat Products");
-        System.out.print("     Please select one of the above: - ");
+        System.out.println("\n\tWhat type of products are you looking to buy today?");
+        System.out.println("\t\t1. Produce Products");
+        System.out.println("\t\t2. Meat Products");
+        System.out.print("\tPlease select one of the above: - ");
 
         String productTypeSelection = System.console().readLine().trim();
         Integer selectedProductMenu;
