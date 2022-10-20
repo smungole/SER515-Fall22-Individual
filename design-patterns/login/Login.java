@@ -1,7 +1,11 @@
+package login;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import database.DB;
 
 /**
  * Responsible for logging the user into the application
@@ -9,8 +13,11 @@ import java.util.Map;
 public class Login {
     private static final String BUYER_FILE_NAME = "BuyerInfo.txt";
     private static final String SELLER_FILE_NAME = "SellerInfo.txt";
-    private static Map<String, String> buyers = new HashMap<String, String>();
-    private static Map<String, String> sellers = new HashMap<String, String>();
+    private static Map<String, String> buyers = new HashMap<>();
+    private static Map<String, String> sellers = new HashMap<>();
+
+    private Login() {
+    }
 
     public static void loadBuyers() throws IOException {
         loadUsers(BUYER_FILE_NAME, buyers);
