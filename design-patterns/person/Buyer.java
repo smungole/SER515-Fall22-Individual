@@ -16,7 +16,9 @@ public class Buyer extends Person {
         String productTypeSelection = System.console().readLine().trim();
         Integer selectedProductMenu;
         try {
-            selectedProductMenu = Integer.parseInt(productTypeSelection);
+            selectedProductMenu = Integer.parseInt(productTypeSelection) >= 2
+                    ? 2
+                    : 1;
         } catch (NumberFormatException e) {
             selectedProductMenu = 1;
         }
