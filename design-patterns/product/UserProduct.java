@@ -8,6 +8,10 @@ import offering.OfferingList;
 import person.Person;
 import util.Util;
 
+/**
+ * Displays the product menu from the user selected category and allows users to
+ * place orders to the PTBS system
+ */
 public class UserProduct {
     private final Person person;
     private final ProductMenu menu;
@@ -19,6 +23,12 @@ public class UserProduct {
         this.offerings = offerings;
     }
 
+    /**
+     * Prompts user with product menu and asks for required information to go
+     * ahead and place orders
+     * 
+     * @throws IOException
+     */
     public void showMenu() throws IOException {
         menu.showMenu();
 
