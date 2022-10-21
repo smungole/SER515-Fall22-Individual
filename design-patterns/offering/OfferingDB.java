@@ -6,6 +6,9 @@ import java.util.List;
 
 import database.DB;
 
+/**
+ * Handles common database operations for buy and sell orders.
+ */
 public class OfferingDB {
     private static final String OFFERING_FILE_NAME = "UserProduct.txt";
     private static List<Offering> offerings = new ArrayList<>();

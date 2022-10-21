@@ -1,5 +1,8 @@
 package offering;
 
+/**
+ * Data Model that stores the orders placed by the user
+ */
 public class Offering {
     public final String person;
     public final String product;
