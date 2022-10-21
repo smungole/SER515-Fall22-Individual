@@ -1,5 +1,8 @@
 package util;
 
+/**
+ * Common helper functions
+ */
 public class Util {
     private Util() {
     }
