@@ -1,45 +1,25 @@
 import java.io.IOException;
 
-import login.Login;
-import menu.ProductMenuDB;
-import offering.OfferingDB;
-import person.Person;
-import product.UserProduct;
-import product.UserProductDB;
 import util.Util;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        // * 1. Initialize Database
-        loadDB();
+        // * 1. Initialize Facade object
+        Facade facade = new Facade();
 
         // * 2. Add Login functionality
         System.out.println();
-        Person person = Login.login();
+        facade.login();
 
         while (true) {
             // * 3. Show product type selection menu based on the type of person
-            person.showMenu();
+            facade.showProductTypeMenu();
 
             // * 4. Show product options to the user
-            UserProduct userProduct = new UserProduct(person);
-            userProduct.showMenu();
+            facade.showUserProductMenu();
 
-            showEOL(person.getName().length());
+            showEOL(facade.getThePerson().getName().length());
         }
-    }
-
-    /**
-     * Loads data from all the text files into memory.
-     * 
-     * @throws IOException
-     */
-    private static void loadDB() throws IOException {
-        Login.loadBuyers();
-        Login.loadSellers();
-        ProductMenuDB.loadProducts();
-        UserProductDB.loadUserProducts();
-        OfferingDB.loadOfferings();
     }
 
     private static void showEOL(int size) {
