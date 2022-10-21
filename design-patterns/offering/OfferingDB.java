@@ -7,8 +7,8 @@ import java.util.List;
 import database.DB;
 
 public class OfferingDB {
-    private static final String OFFERING_FILE_NAME = "OfferingInfo.txt";
-    private static final List<Offering> offerings = new ArrayList<>();
+    private static final String OFFERING_FILE_NAME = "UserProduct.txt";
+    private static List<Offering> offerings = new ArrayList<>();
 
     public static List<Offering> getOfferings() {
         return offerings;
@@ -21,6 +21,7 @@ public class OfferingDB {
         DB db = DB.getInstance();
         List<String> contents = db.read(OFFERING_FILE_NAME);
 
+        offerings = new ArrayList<>();
         for (int i = 0; i < contents.size(); i++) {
             String[] data = contents.get(i).trim().split(":");
             Offering offering = new Offering(

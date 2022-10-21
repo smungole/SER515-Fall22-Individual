@@ -1,5 +1,6 @@
 package menu;
 
+import java.io.IOException;
 import java.util.List;
 
 import util.Util;
@@ -8,7 +9,8 @@ public class MeatProductMenu implements ProductMenu {
 
     private List<String> products;
 
-    public MeatProductMenu() {
+    public MeatProductMenu() throws IOException {
+        ProductMenuDB.loadProducts();
         this.products = ProductMenuDB.getMeatProducts();
     }
 
@@ -26,7 +28,7 @@ public class MeatProductMenu implements ProductMenu {
 
     @Override
     public String valueAt(Integer index) {
-        if (index < 0 && index >= products.size()) {
+        if (index < 0 || index >= products.size()) {
             return null;
         }
         return products.get(index);

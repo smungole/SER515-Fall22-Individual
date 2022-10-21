@@ -1,19 +1,19 @@
 package person;
 
+import java.io.IOException;
+
 import menu.MeatProductMenu;
 import menu.ProduceProductMenu;
 import menu.ProductMenu;
-import offering.OfferingList;
 
 public class Buyer extends Person {
 
-    public Buyer(String name) {
+    public Buyer(String name) throws IOException {
         this.name = name;
     }
 
     @Override
-    public void showMenu() {
-        setOfferings(new OfferingList());
+    public void showMenu() throws IOException {
         showOfferings();
 
         System.out.println("\n\tWhat type of products are you looking to buy today?");

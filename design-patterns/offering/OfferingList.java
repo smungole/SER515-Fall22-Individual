@@ -18,7 +18,8 @@ public class OfferingList implements PTBSList<Offering> {
         return offerings;
     }
 
-    public OfferingList() {
+    public OfferingList() throws IOException {
+        OfferingDB.loadOfferings();
         this.offerings = OfferingDB.getOfferings();
     }
 

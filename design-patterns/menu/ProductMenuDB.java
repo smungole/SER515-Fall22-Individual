@@ -30,6 +30,8 @@ public class ProductMenuDB {
         DB db = DB.getInstance();
         List<String> contents = db.read(PRODUCT_FILE_NAME);
 
+        meatProducts = new ArrayList<>();
+        produceProducts = new ArrayList<>();
         for (int i = 0; i < contents.size(); i++) {
             String[] product = contents.get(i).trim().split(":");
             if (product[0].equals(PRODUCE_KEY)) {

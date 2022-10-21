@@ -2,6 +2,9 @@ package person;
 
 import util.Iterator;
 import util.Util;
+
+import java.io.IOException;
+
 import menu.ProductMenu;
 import offering.Offering;
 import offering.OfferingList;
@@ -23,7 +26,7 @@ public abstract class Person {
         this.theProductMenu = theProductMenu;
     }
 
-    public abstract void showMenu();
+    public abstract void showMenu() throws IOException;
 
     public abstract ProductMenu createProductMenu();
 
@@ -40,11 +43,13 @@ public abstract class Person {
     }
 
     public void showOfferings() {
-        System.out.printf("\n\t%s PAST ORDERS %s\n",
-                Util.dashes(10),
-                Util.dashes(10));
-
         Iterator<Offering> iterator = offerings.getIterator();
+        if (iterator.hasNext()) {
+            System.out.printf("\n\t%s PAST ORDERS %s\n",
+                    Util.dashes(10),
+                    Util.dashes(10));
+        }
+
         while (iterator.hasNext()) {
             Offering offering = iterator.next();
             if (offering.person.equals(name)) {

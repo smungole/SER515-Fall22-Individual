@@ -43,7 +43,10 @@ public class Login {
      * 
      * @return
      */
-    public static Person login() {
+    public static Person login() throws IOException {
+        loadBuyers();
+        loadSellers();
+
         String name = null;
         String pass = null;
         Person person = null;
@@ -79,7 +82,7 @@ public class Login {
         return new String(pass).trim();
     }
 
-    private static Person verify(String name, String pass) {
+    private static Person verify(String name, String pass) throws IOException {
         if (buyers.containsKey(name) && buyers.get(name).equals(pass)) {
             return new Buyer(name);
         }

@@ -13,10 +13,10 @@ public class UserProduct {
     private final ProductMenu menu;
     private final OfferingList offerings;
 
-    public UserProduct(Person person) {
+    public UserProduct(Person person, OfferingList offerings) throws IOException {
         this.person = person;
         this.menu = person.createProductMenu();
-        this.offerings = new OfferingList();
+        this.offerings = offerings;
     }
 
     public void showMenu() throws IOException {
@@ -40,8 +40,6 @@ public class UserProduct {
                 Double price = Double.parseDouble(System.console().readLine().trim());
 
                 orderSummary(placeOrderStrings[3], product, quantity, price);
-                UserProductDB.addProduct(person.getName(), product);
-                UserProductDB.saveUserProducts();
 
                 Offering offering = new Offering(person.getName(), product, quantity, price);
                 offerings.add(offering);
