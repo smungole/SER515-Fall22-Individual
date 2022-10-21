@@ -18,9 +18,6 @@ public class Login {
     private static Map<String, String> buyers = new HashMap<>();
     private static Map<String, String> sellers = new HashMap<>();
 
-    private Login() {
-    }
-
     public static void loadBuyers() throws IOException {
         loadUsers(BUYER_FILE_NAME, buyers);
     }
@@ -29,21 +26,12 @@ public class Login {
         loadUsers(SELLER_FILE_NAME, sellers);
     }
 
-    private static void loadUsers(String fileName, Map<String, String> store) throws IOException {
-        DB db = DB.getInstance();
-        List<String> contents = db.read(fileName);
-        for (int i = 0; i < contents.size(); i++) {
-            String[] user = contents.get(i).trim().split(":");
-            store.put(user[0], user[1]);
-        }
-    }
-
     /**
      * Verifies if the user exists in the system.
      * 
      * @return
      */
-    public static Person login() throws IOException {
+    public static Person showLogin() throws IOException {
         loadBuyers();
         loadSellers();
 
@@ -70,6 +58,15 @@ public class Login {
         return person;
     }
 
+    private static void loadUsers(String fileName, Map<String, String> store) throws IOException {
+        DB db = DB.getInstance();
+        List<String> contents = db.read(fileName);
+        for (int i = 0; i < contents.size(); i++) {
+            String[] user = contents.get(i).trim().split(":");
+            store.put(user[0], user[1]);
+        }
+    }
+
     private static String askUserName() {
         System.out.print("\tWhat is thy name? - ");
         String user = System.console().readLine();
@@ -90,5 +87,8 @@ public class Login {
             return new Seller(name);
         }
         return null;
+    }
+
+    private Login() {
     }
 }

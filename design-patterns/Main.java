@@ -10,7 +10,7 @@ public class Main {
 
         // * 2. Add Login functionality
         System.out.println();
-        facade.login();
+        facade.showLogin();
 
         while (true) {
             // * 3. Show product type selection menu based on the type of person
