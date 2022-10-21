@@ -18,6 +18,11 @@ public class DB {
     private DB() {
     }
 
+    /**
+     * Returns the singleton instance of DB class.
+     * 
+     * @return
+     */
     public static DB getInstance() {
         if (instance == null) {
             instance = new DB();
@@ -25,11 +30,25 @@ public class DB {
         return instance;
     }
 
+    /**
+     * Responsible for reading contents of given text file.
+     * 
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
     public List<String> read(String fileName) throws IOException {
         Path path = Path.of(String.format("data%s%s", DB.SEP, fileName));
         return Files.exists(path) ? Files.readAllLines(path) : new ArrayList<>();
     }
 
+    /**
+     * Responsible for writing contents to given text file.
+     * 
+     * @param contents
+     * @param fileName
+     * @throws IOException
+     */
     public void write(List<String> contents, String fileName) throws IOException {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < contents.size(); i++) {
