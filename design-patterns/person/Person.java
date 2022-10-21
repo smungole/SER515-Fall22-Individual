@@ -44,15 +44,17 @@ public abstract class Person {
 
     public void showOfferings() {
         Iterator<Offering> iterator = offerings.getIterator();
-        if (iterator.hasNext()) {
-            System.out.printf("\n\t%s PAST ORDERS %s\n",
-                    Util.dashes(10),
-                    Util.dashes(10));
-        }
-
+        boolean showHeading = true;
         while (iterator.hasNext()) {
             Offering offering = iterator.next();
             if (offering.person.equals(name)) {
+                if (showHeading) {
+                    System.out.printf("\n\t%s PAST ORDERS %s\n",
+                            Util.dashes(10),
+                            Util.dashes(10));
+                    showHeading = false;
+                }
+
                 System.out.printf("\t\t%s\n", offering.product);
                 System.out.printf("\t\t- %d\n", offering.quantity);
                 System.out.printf("\t\t- $%.2f\n", offering.price);

@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import facade.Facade;
 import util.Util;
 
 public class Main {
@@ -17,6 +18,11 @@ public class Main {
 
             // * 4. Show product options to the user
             facade.showUserProductMenu();
+
+            showEOL(facade.getThePerson().getName().length());
+
+            System.out.println("\t\tReminder triggered:");
+            facade.remind();
 
             showEOL(facade.getThePerson().getName().length());
         }
