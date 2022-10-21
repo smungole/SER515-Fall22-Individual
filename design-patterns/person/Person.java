@@ -9,30 +9,38 @@ import menu.ProductMenu;
 import offering.Offering;
 import offering.OfferingList;
 
+/**
+ * Represents a user in the system, this is a part of the Bridge Design Pattern,
+ * as well as the Factory Design Pattern
+ */
 public abstract class Person {
     protected String name;
+
+    private ProductMenu theProductMenu;
+
+    private OfferingList offerings;
 
     public String getName() {
         return name;
     }
 
-    private ProductMenu theProductMenu;
-
-    protected ProductMenu getTheProductMenu() {
-        return theProductMenu;
-    }
-
-    protected void setTheProductMenu(ProductMenu theProductMenu) {
-        this.theProductMenu = theProductMenu;
-    }
-
+    /**
+     * Displays choices to select the category of Product they'd like to explore
+     * 
+     * @throws IOException
+     */
     public abstract void showMenu() throws IOException;
 
+    /**
+     * This is a Factory Design Pattern for the ProductMenu objects.
+     * Responsible for creating ProductMenu objects based on the type of user
+     * as well the type of product that is selected by the user
+     * 
+     * @return
+     */
     public abstract ProductMenu createProductMenu();
 
     public abstract String[] placeOrderStrings();
-
-    private OfferingList offerings;
 
     public OfferingList getOfferings() {
         return offerings;
@@ -42,6 +50,10 @@ public abstract class Person {
         this.offerings = offerings;
     }
 
+    /**
+     * Uses Iterator Design Pattern to display the past orders of the current
+     * user
+     */
     public void showOfferings() {
         Iterator<Offering> iterator = offerings.getIterator();
         boolean showHeading = true;
@@ -61,5 +73,13 @@ public abstract class Person {
                 System.out.printf("\t%s\n", Util.dashes(5));
             }
         }
+    }
+
+    protected ProductMenu getTheProductMenu() {
+        return theProductMenu;
+    }
+
+    protected void setTheProductMenu(ProductMenu theProductMenu) {
+        this.theProductMenu = theProductMenu;
     }
 }

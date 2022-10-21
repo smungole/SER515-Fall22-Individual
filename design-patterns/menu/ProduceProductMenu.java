@@ -5,6 +5,9 @@ import java.util.List;
 
 import util.Util;
 
+/**
+ * Implementation of ProductMenu interface, as a part of Bridge Design Pattern
+ */
 public class ProduceProductMenu implements ProductMenu {
 
     private List<String> products;
@@ -14,6 +17,11 @@ public class ProduceProductMenu implements ProductMenu {
         this.products = ProductMenuDB.getProduceProducts();
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see menu.ProductMenu#showMenu()
+     */
     @Override
     public void showMenu() {
         System.out.printf(
@@ -26,6 +34,11 @@ public class ProduceProductMenu implements ProductMenu {
         }
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see menu.ProductMenu#valueAt(java.lang.Integer)
+     */
     @Override
     public String valueAt(Integer index) {
         if (index < 0 || index >= products.size()) {

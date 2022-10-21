@@ -6,6 +6,9 @@ import java.util.List;
 
 import database.DB;
 
+/**
+ * Handles common database perations specific to the ProductMenu
+ */
 public class ProductMenuDB {
     private static final String PRODUCT_FILE_NAME = "ProductInfo.txt";
     private static final String PRODUCE_KEY = "Produce";

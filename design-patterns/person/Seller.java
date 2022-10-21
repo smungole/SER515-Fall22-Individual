@@ -6,12 +6,21 @@ import menu.MeatProductMenu;
 import menu.ProduceProductMenu;
 import menu.ProductMenu;
 
+/**
+ * Implementation of the Person abstract class, as a part of Bridge Design
+ * Pattern as well as the Factory Design Pattern
+ */
 public class Seller extends Person {
 
     public Seller(String name) throws IOException {
         this.name = name;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see person.Person#showMenu()
+     */
     @Override
     public void showMenu() throws IOException {
         showOfferings();
@@ -38,6 +47,11 @@ public class Seller extends Person {
         }
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see person.Person#createProductMenu()
+     */
     @Override
     public ProductMenu createProductMenu() {
         return super.getTheProductMenu();
