@@ -2,6 +2,7 @@ import java.io.IOException;
 
 import login.Login;
 import menu.ProductMenuDB;
+import offering.OfferingDB;
 import person.Person;
 import product.UserProduct;
 import product.UserProductDB;
@@ -38,6 +39,7 @@ public class Main {
         Login.loadSellers();
         ProductMenuDB.loadProducts();
         UserProductDB.loadUserProducts();
+        OfferingDB.loadOfferings();
     }
 
     private static void showEOL(int size) {

@@ -3,16 +3,20 @@ package product;
 import java.io.IOException;
 
 import menu.ProductMenu;
+import offering.Offering;
+import offering.OfferingList;
 import person.Person;
 import util.Util;
 
 public class UserProduct {
     private final Person person;
     private final ProductMenu menu;
+    private final OfferingList offerings;
 
     public UserProduct(Person person) {
         this.person = person;
         this.menu = person.createProductMenu();
+        this.offerings = new OfferingList();
     }
 
     public void showMenu() throws IOException {
@@ -36,6 +40,12 @@ public class UserProduct {
                 Double price = Double.parseDouble(System.console().readLine().trim());
 
                 orderSummary(placeOrderStrings[3], product, quantity, price);
+                UserProductDB.addProduct(person.getName(), product);
+                UserProductDB.saveUserProducts();
+
+                Offering offering = new Offering(person.getName(), product, quantity, price);
+                offerings.add(offering);
+
                 repeat = false;
             } catch (NumberFormatException e) {
                 System.out.println("\nInvalid selection, please try again");
@@ -43,7 +53,7 @@ public class UserProduct {
         }
     }
 
-    private void orderSummary(String label, String product, Integer quantity, Double price) throws IOException {
+    private void orderSummary(String label, String product, Integer quantity, Double price) {
         System.out.printf(
                 "\n\t%s ORDER SUMMARY %s\n",
                 Util.dashes(10),
@@ -53,8 +63,5 @@ public class UserProduct {
         System.out.printf("\t\t- Name: %s\n", product);
         System.out.printf("\t\t- Quantity: %d\n", quantity);
         System.out.printf("\t\t- Price: $%.2f\n", price);
-
-        UserProductDB.addProduct(person.getName(), product);
-        UserProductDB.saveUserProducts();
     }
 }

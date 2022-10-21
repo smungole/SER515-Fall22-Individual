@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class DB {
 
     public List<String> read(String fileName) throws IOException {
         Path path = Path.of(String.format("data%s%s", DB.SEP, fileName));
-        return Files.readAllLines(path);
+        return Files.exists(path) ? Files.readAllLines(path) : new ArrayList<>();
     }
 
     public void write(List<String> contents, String fileName) throws IOException {
