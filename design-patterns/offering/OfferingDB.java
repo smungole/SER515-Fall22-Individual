@@ -27,7 +27,8 @@ public class OfferingDB {
                     data[0],
                     data[1],
                     Integer.parseInt(data[2]),
-                    Double.parseDouble(data[3]));
+                    Double.parseDouble(data[3]),
+                    Long.parseLong(data[4]));
             offerings.add(offering);
         }
     }

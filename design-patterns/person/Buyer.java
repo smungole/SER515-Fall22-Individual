@@ -3,6 +3,7 @@ package person;
 import menu.MeatProductMenu;
 import menu.ProduceProductMenu;
 import menu.ProductMenu;
+import offering.OfferingList;
 
 public class Buyer extends Person {
 
@@ -12,6 +13,9 @@ public class Buyer extends Person {
 
     @Override
     public void showMenu() {
+        setOfferings(new OfferingList());
+        showOfferings();
+
         System.out.println("\n\tWhat type of products are you looking to buy today?");
         System.out.println("\t\t1. Produce Products");
         System.out.println("\t\t2. Meat Products");

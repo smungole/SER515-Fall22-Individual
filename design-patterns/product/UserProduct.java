@@ -48,7 +48,7 @@ public class UserProduct {
 
                 repeat = false;
             } catch (NumberFormatException e) {
-                System.out.println("\nInvalid selection, please try again");
+                System.out.println("\n\tInvalid selection, please try again\n");
             }
         }
     }

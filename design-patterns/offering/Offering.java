@@ -8,11 +8,15 @@ public class Offering {
     public final long timeStamp;
 
     public Offering(String person, String product, Integer quantity, Double price) {
+        this(person, product, quantity, price, System.currentTimeMillis());
+    }
+
+    public Offering(String person, String product, Integer quantity, Double price, long timeStamp) {
         this.person = person;
         this.product = product;
         this.quantity = quantity;
         this.price = price;
-        this.timeStamp = System.currentTimeMillis();
+        this.timeStamp = timeStamp;
     }
 
     @Override
